@@ -4,58 +4,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio Commercial</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<header>
-    <div class="author-name">Emilien BARDIN</div>
-    <div class="profile-photo">
-        <img src="https://media.licdn.com/dms/image/v2/D5603AQH36M4MvcfyvA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1699395149093?e=1738195200&v=beta&t=RgPGLZb0BOGYJruJekeNTdtmS49h354rNfyIBn0Q3oE" alt="Photo de Emilien BARDIN">
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#edito">Édito</a></li>
-            <li><a href="#projets">Projets</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
 <body id="top">
+    <header>
+        <!-- Bouton pour basculer entre le mode clair/sombre -->
+        <button id="toggle-mode" class="mode-btn">🌙</button>
+        
+        <!-- Nom de l'auteur -->
+        <div class="author-name">Emilien BARDIN</div>
+        
+        <!-- Photo de profil -->
+        <div class="profile-photo">
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQH36M4MvcfyvA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1699395149093?e=1738195200&v=beta&t=RZHOUUjZC9zjrhzw8XNS6hnSaUScodMTudF4dUfCoQM" alt="Photo de Emilien BARDIN">
+        </div>
+        <button class="menu-toggle" aria-label="Menu">
+            ☰
+        </button>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#edito">Édito</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
         <section id="edito">
-            <h2>Bienvenue sur mon portfolio !</h2>
-            <p>"Un bon commercial sait saisir toutes les opportunités avec stratégie et enthousiasme."</p>
+            <div class="edito-background"></div> <!-- Conteneur pour le fond -->
+            <div class="edito-bg"></div> <!-- Conteneur pour l'image -->
+            <div class="edito-bg2"></div> <!-- Conteneur pour l'image -->
+            <div class="edito-content"> <!-- Conteneur pour le texte -->
+                <h2>Bienvenue sur mon portfolio !</h2>
+                <p>"Un bon commercial sait saisir toutes les opportunités avec stratégie et enthousiasme."</p>
+            </div>
         </section>
 
         <section id="projets">
             <h2>Mes Projets</h2>
             <div class="project-grid">
                 <div class="project">
-                    <h3>Projet 1</h3>
-                    <p>Description courte du projet 1.</p>
+                    <div class="project-inner">
+                        <div class="project-front">
+                            <h3>Record de vente mars 2018</h3>
+                            <p>Mercedes Classe G Full Options -> 180k € </p>
+                        </div>
+                        <div class="project-back">
+                            <img src="https://www.largus.fr/images/images/mercedes-amg-g63-edition1-04.jpg" alt="Image Projet 1">
+                        </div>
+                    </div>
                 </div>
                 <div class="project">
-                    <h3>Projet 2</h3>
-                    <p>Description courte du projet 2.</p>
+                    <div class="project-inner">
+                        <div class="project-front">
+                            <h3>Meilleure Vente 2019</h3>
+                            <p>Audi RS6 GT</p>
+                        </div>
+                        <div class="project-back">
+                            <img src="https://e7852c3a.rocketcdn.me/wp-content/uploads/2024/02/A237091_large.jpg" alt="Image Projet 2">
+                        </div>
+                    </div>
                 </div>
                 <div class="project">
-                    <h3>Projet 3</h3>
-                    <p>Description courte du projet 3.</p>
+                    <div class="project-inner">
+                        <div class="project-front">
+                            <h3>Première vente du modèle</h3>
+                            <p>Tesla CyberTruck</p>
+                        </div>
+                        <div class="project-back">
+                            <img src="https://cdn.motor1.com/images/mgl/JOxo1K/s1/tesla-cybertruck.jpg" alt="Image Projet 3">
+                        </div>
+                    </div>
                 </div>
                 <div class="project">
-                    <h3>Projet 4</h3>
-                    <p>Description courte du projet 4.</p>
+                    <div class="project-inner">
+                        <div class="project-front">
+                            <h3>Vente modèle à 2500 exemplaires </h3>
+                            <p>Porsche 911 Dakar édition</p>
+                        </div>
+                        <div class="project-back">
+                            <img src="https://www.largus.fr/images/styles/max_1300x1300/public/2023-07/porsche-911-dakar-2022-008.jpg?itok=MBfr87WE" alt="Image Projet 4">
+                        </div>
+                    </div>
                 </div>
                 <div class="project">
-                    <h3>Projet 5</h3>
-                    <p>Description courte du projet 5.</p>
+                    <div class="project-inner">
+                        <div class="project-front">
+                            <h3>Rachat et revente d'un modèle de collection</h3>
+                            <p>Mercedes McLaren SLR Stirling Moss</p>
+                        </div>
+                        <div class="project-back">
+                            <img src="https://www.topgear-magazine.fr/wp-content/uploads/2020/04/mercedes_slr_stirling_moss_4.jpg" alt="Image Projet 5">
+                        </div>
+                    </div>
                 </div>
                 <div class="project">
-                    <h3>Projet 6</h3>
-                    <p>Description courte du projet 6.</p>
+                    <div class="project-inner">
+                        <div class="project-front">
+                            <h3>Vente d'un 4x4 à un client VIP</h3>
+                            <p>Vente d'un Land Rover DEFENDER à M. VALLOT</p>
+                        </div>
+                        <div class="project-back">
+                            <img src="https://www.largus.fr/images/styles/max_1300x1300/public/2024-07/defender-octa-2024-vert-avg-mk.jpeg?itok=YDnNAER3" alt="Image Projet 6">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -88,6 +143,10 @@
             <a href="#" target="_blank" aria-label="GitHub">💻</a>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
+
+</html>
 
 </html>
