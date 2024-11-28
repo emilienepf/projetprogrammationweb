@@ -17,7 +17,7 @@
 
 .back-to-top:hover {
     background-color: #90caf9;
-    transform: scale(1.1);
+    transform: scale(1.28);
 }
 
 /* Header avec photo au centre et navigation à droite */
@@ -65,36 +65,6 @@ header .profile-photo img {
     object-fit: cover;
 }
 
-/* Alignement des liens de navigation à droite */
-header nav {
-    position: absolute;
-    right: 2rem; /* Position à droite avec un espacement de 2rem */
-    top: 50%;
-    transform: translateY(-50%); /* Centre verticalement */
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    text-align: right;
-}
-
-header nav ul li {
-    margin-left: 1rem;
-}
-
-header nav ul li a {
-    text-decoration: none;
-    color: #64b5f6; /* Accent bleu clair */
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-header nav ul li a:hover {
-    color: #90caf9; /* Accent bleu plus clair */
-}
 
 /* Photo de profil */
 .profile-photo {
@@ -116,64 +86,126 @@ main {
     margin-left: 10px; /* Légère marge à gauche */
 }
 
-/* Section Édito avec motif coloré et bords arrondis */
-#edito {
-    position: relative; /* Nécessaire pour l'overlay */
-    padding: 4rem 1rem;
-    text-align: center;
-    background-color: #64b5f6; /* Une couleur d'arrière-plan de base */
-    background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Cpath fill=%22%2364b5f6%22 d=%22M0,50 Q25,20 50,50 Q75,80 100,50 L100,100 L0,100 Z%22 /%3E%3Cpath fill=%22%23ff4081%22 d=%22M0,50 Q25,30 50,50 Q75,70 100,50 L100,100 L0,100 Z%22 /%3E%3Cpath fill=%22%23ff9800%22 d=%22M0,50 Q25,40 50,50 Q75,60 100,50 L100,100 L0,100 Z%22 /%3E%3C/svg%3E');
-    background-size: cover;
-    background-position: center center;
-    color: #fff; /* Texte blanc pour contraste */
-    border-radius: 20px; /* Bords arrondis pour la section */
-    overflow: hidden; /* Empêche l'extension du motif */
-}
 
 #edito h2 {
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 #edito p {
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
 /* Grid des projets */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    padding: 2rem 1rem;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+    gap: 1.5rem 2rem; /* Moins d'espace horizontal (1.5rem) et plus d'espace vertical (2rem) */
+    padding: 2rem; /* Marges autour de la grille */
 }
 
+/* Conteneur général du projet */
 .project {
+    perspective: 1000px; /* Nécessaire pour l'effet 3D */
+    position: relative;
+    width: 100%; /* Occupe l'espace alloué dans la grille */
+    aspect-ratio: 1 / 1; /* Format carré */
+    max-width: 400px; /* Taille légèrement augmentée */
+    margin: 0 auto; /* Centre les projets dans leur colonne */
+}
+
+/* Conteneur interne */
+.project-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; /* Active l'effet 3D */
+    transition: transform 0.8s ease; /* Transition fluide */
+}
+
+/* Face avant */
+.project-front,
+.project-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    backface-visibility: hidden; /* Cache la face arrière par défaut */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+/* Face avant */
+.project-front {
     background-color: #1f1f1f; /* Fond sombre */
-    padding: 1rem;
-    border: 1px solid #333; /* Bordure discrète */
-    border-radius: 5px;
+    color: #e0e0e0; /* Texte clair */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition pour le mode clair */
+    box-shadow: 6px 6px 60px rgba(0.3, 0.3, 0.3, 0.3); /* Ombre légère */
 }
 
-.project:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
-}
-
-.project h3 {
+.project-front h3 {
     margin-bottom: 0.5rem;
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* Taille légèrement augmentée */
     color: #90caf9; /* Accent bleu clair */
 }
 
-.project p {
-    font-size: 0.9rem;
+.project-front p {
+    font-size: 0.9rem; /* Taille légèrement augmentée */
     color: #b0bec5; /* Texte légèrement plus clair */
 }
 
+/* Face arrière */
+.project-back {
+    background-color: #121212; /* Fond blanc */
+    transform: rotateY(180deg); /* Face arrière masquée par défaut */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px; /* Coins arrondis */
+}
+
+.project-back img {
+    max-width: 150%; /* Ajuste la taille de l'image */
+    max-height: 150%;
+    border-radius: 5px; /* Coins arrondis */
+}
+
+/* Effet de rotation au survol */
+.project:hover .project-inner {
+    transform: rotateY(180deg); /* Rotation complète */
+}
+
+/* Mode clair pour les projets */
+body.light-mode .project {
+    background-color: #f0f0f0; /* Fond des projets en blanc */
+    color: #222; /* Texte en noir */
+}
+
+body.light-mode .project-front {
+    background-color: #efefef; /* Fond clair pour la face avant */
+    color: #222; /* Texte noir */
+}
+
+body.light-mode .project-front h3 {
+    color: #000; /* Titre noir */
+}
+
+body.light-mode .project-front p {
+    color: #333; /* Texte légèrement plus clair */
+}
+
+body.light-mode .project-back {
+    background-color: #efefef; /* Fond blanc pour la face arrière */
+}
 /* Formulaire de contact */
 #contact {
     padding: 2rem 1rem;
@@ -270,4 +302,451 @@ footer .footer-links li a:hover {
     footer .footer-links {
         margin-top: 1rem;
     }
+}
+
+
+/* Mode clair */
+body.light-mode .mode-btn {
+    background-color: #fff; /* Fond blanc */
+    color: #000; /* Texte noir */
+}
+
+.mode-btn:hover {
+    scale:120%;
+}
+
+/* Light mode styles */
+body.light-mode {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+header.light-mode {
+    background-color: #ffffff;
+    color: #333;
+}
+
+header.light-mode nav ul li a {
+    color: #333;
+}
+
+header.light-mode nav ul li a:hover {
+    color: #555;
+}
+
+form.light-mode input, form.light-mode textarea {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+form.light-mode button {
+    background-color: #64b5f6;
+    color: #ffffff;
+}
+
+footer.light-mode {
+    background-color: #ffffff;
+    color: #333;
+}
+
+footer.light-mode .footer-links li a {
+    color: #64b5f6;
+}
+
+/* Formulaire en mode clair */
+form.light-mode label {
+    color: #222; /* Texte en noir */
+}
+
+.project.light-mode h3 {
+    color: #000; /* Titre en noir */
+}
+
+.project.light-mode p {
+    color: #333; /* Texte des descriptions légèrement plus clair */
+}
+
+/* Transition pour rendre le changement fluide */
+.project {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* Bouton de retour en haut - Mode clair */
+body.light-mode .back-to-top {
+    background-color: #ffffff; /* Fond blanc */
+    color: #222; /* Police noire */
+    border: 1px solid #ddd; /* Bordure légère */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+body.light-mode .back-to-top:hover {
+    background-color: #f0f0f0; /* Fond légèrement plus clair au survol */
+    color: #000; /* Police noire au survol */
+}
+
+/* Bouton "Envoyer" du formulaire - Mode clair */
+body.light-mode form button {
+    background-color: #ffffff; /* Fond blanc */
+    color: #222; /* Police noire */
+    border: 1px solid #ccc; /* Bordure légère */
+}
+
+body.light-mode form button:hover {
+    background-color: #f0f0f0; /* Fond légèrement plus clair au survol */
+    color: #000; /* Police noire au survol */
+}
+
+/* Bouton de retour en haut - Taille plus petite */
+.back-to-top {
+    font-size: 0.9rem; /* Réduit la taille de la police */
+    padding: 8px 12px; /* Réduit le padding (taille globale du bouton) */
+    border-radius: 8px; /* Bordure légèrement arrondie */
+    bottom: 15px; /* Ajuste la position par rapport au bas */
+    right: 15px; /* Ajuste la position par rapport à la droite */
+}
+
+/* Bouton de retour en haut - Mode clair */
+body.light-mode .back-to-top {
+    background-color: #ffffff;
+    color: #222;
+    border: 1px solid #ddd;
+}
+
+body.light-mode .back-to-top:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+/* Section Édito */
+#edito {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden; /* Empêche le débordement des éléments */
+    height: 300px; /* Définir une hauteur fixe si nécessaire */
+}
+
+/* Couleur de fond de la section */
+.edito-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #121212; /* Fond sombre par défaut */
+    z-index: 0; /* Couche inférieure */
+    transition: background-color 0.3s ease; /* Transition fluide */
+}
+
+/* Texte */
+.edito-content {
+    position: relative; /* Assure que le texte est au-dessus de l'image et du fond */
+    z-index: 2;
+    text-align: center;
+    margin-right: 6%;
+    color: #fff; /* Texte blanc par défaut */
+    padding: 2rem; /* Espacement autour du texte */
+    line-height: 1.8; /* Améliore la lisibilité avec un espacement vertical */
+}
+
+.edito-bg {
+    position: absolute;
+    top: 60%; /* Centre verticalement */
+    right: 30%; /* Positionne à gauche */
+    transform: translateY(-50%); /* Ajuste pour centrer parfaitement l'image verticalement */
+    width: 90%; /* Largeur de l'image */
+    height: 90%; /* Laisse la hauteur s'adapter automatiquement en fonction des proportions */
+    background-image: url('https://pngimg.com/d/mercedes_PNG80168.png');
+    background-size: contain; /* Assure que l'image est entièrement visible */
+    background-position: center; /* Centre l'image horizontalement */
+    background-repeat: no-repeat; /* Évite la répétition de l'image */
+    opacity: 0.4; /* Opacité complète par défaut */
+    z-index: 1; /* Couche supérieure par rapport au fond */
+    transition: opacity 0.3s ease; /* Transition fluide */
+}
+
+
+.edito-bg2 {
+    position: absolute;
+    top: 58%; /* Centre verticalement */
+    left: 25%; /* Positionne à gauche */
+    transform: translateY(-50%); /* Ajuste pour centrer parfaitement l'image verticalement */
+    width: 95%; /* Largeur de l'image */
+    height: 95%; /* Laisse la hauteur s'adapter automatiquement en fonction des proportions */
+    background-image: url('https://pngimg.com/d/porsche_PNG102866.png');
+    background-size: contain; /* Assure que l'image est entièrement visible */
+    background-position: center; /* Centre l'image horizontalement */
+    background-repeat: no-repeat; /* Évite la répétition de l'image */
+    opacity: 0.4; /* Opacité complète par défaut */
+    z-index: 1; /* Couche supérieure par rapport au fond */
+    transition: opacity 0.3s ease; /* Transition fluide */
+}
+
+/* Masquer les images sur téléphone */
+@media (max-width: 768px) {
+    .edito-bg2 {
+        display: none; /* Masque l'image de fond */
+    }
+    .edito-content {
+        font-size: 20%; /* Taille de police plus petite pour les téléphones */
+        line-height: 0.8; /* Espacement des lignes réduit */
+    }
+    .edito-bg {
+        display: none; /* Masque l'image de fond */
+    }
+}
+
+/* Masquer les images sur téléphone */
+@media (max-width: 1024px) {
+    .edito-content {
+        font-size: 20%; /* Taille de police plus petite pour les téléphones */
+        line-height: 0.8; /* Espacement des lignes réduit */
+    }
+    .edito-bg2 {
+        display: none; /* Masque l'image de fond */
+    }
+    .edito-bg {
+        display: none; /* Masque l'image de fond */
+    }
+    
+}
+
+/* Mode clair - Fond gris clair */
+body.light-mode .edito-background {
+    background-color: #f0f0f0; /* Couleur de fond gris clair */
+}
+
+body.light-mode .edito-bg {
+    opacity: 0.8; /* Transparence de l'image */
+}
+
+body.light-mode .edito-content {
+    color: #222; /* Texte noir */
+}
+
+/* Pleine opacité de l'image au survol */
+body.light-mode .edito-bg:hover {
+    opacity: 1;
+}
+
+@media (max-width: 769px) {
+/* Menu principal */
+.header-nav {
+    position: absolute;
+    top: 70px; /* Position pour le menu déroulant sur mobile */
+    right: 20px; /* Aligné à droite */
+    width: 100px; /* Largeur fixe du menu déroulant */
+    background-color: #fff; /* Fond blanc */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    border-radius: 5px; /* Coins arrondis */
+    max-height: 0; /* Par défaut, le menu déroulant est masqué */
+    overflow: hidden; /* Cache le contenu lorsqu'il est masqué */
+    transition: max-height 0.3s ease; /* Animation fluide pour l'ouverture/fermeture */
+    z-index: 1000; /* S'assure que le menu est au-dessus des autres éléments */
+}
+
+.header-nav.open {
+    max-height: 300px; /* Hauteur maximale lorsqu'il est ouvert */
+}
+
+/* Liens du menu */
+.header-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav ul li {
+    border-bottom: 1px solid #eee; /* Séparation entre les items dans le menu déroulant */
+}
+
+.header-nav ul li:last-child {
+    border-bottom: none;
+}
+
+.header-nav ul li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.header-nav ul li a:hover {
+    background-color: #f0f0f0; /* Couleur d'arrière-plan au survol */
+}
+
+/* Bouton menu */
+.menu-toggle {
+    display: block;
+    background-color: #64b5f6; /* Couleur de fond bleu */
+    color: #fff; /* Texte blanc */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 20px; /* Légèrement descendu */
+    right: 10px; /* Position alignée à droite */
+    z-index: 1100; /* S'assure que le bouton est au-dessus du menu */
+}
+
+.menu-toggle:hover {
+    background-color: #90caf9;
+}
+header .profile-photo {
+    width: 75px; /* Augmentez la largeur */
+    height: 75px; /* Augmentez la hauteur */
+    border-radius: 50%; /* Conserve la forme circulaire */
+    overflow: hidden;
+    border: 2px solid #64b5f6; /* Bordure bleue claire */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px; /* Ajustez la position verticale */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Image à l'intérieur de la photo de profil */
+header .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bouton pour le mode clair/sombre */
+.mode-btn {
+    position: absolute;
+    top: 20px; /* Position verticale */
+    right: 60px; /* Déplace le bouton à gauche du menu déroulant */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #1f1f1f; /* Fond noir */
+    color: #fff; /* Texte blanc */
+    transition: background-color 0.3s ease;
+}
+
+    
+}
+
+/* Style pour les écrans larges */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none; /* Cache le bouton sur PC */
+    }
+    header .profile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* Alignement des liens de navigation à droite */
+    header nav {
+        position: absolute;
+        right: 5rem; /* Position à droite avec un espacement de 2rem */
+        top: 50%;
+        transform: translateY(-50%); /* Centre verticalement */
+    }
+    
+    header nav ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+    }
+    
+    header nav ul li {
+        margin-left: 1rem;
+    }
+    
+    header nav ul li a {
+        text-decoration: none;
+        color: #64b5f6; /* Accent bleu clair */
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    
+    header nav ul li a:hover {
+        color: #90caf9; /* Accent bleu plus clair */
+    }
+    
+    /* Photo de profil */
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 1rem auto;
+    }
+    
+    .profile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* Marge uniquement pour le contenu principal */
+    main {
+        margin-left: 10px; /* Légère marge à gauche */
+    }
+
+/* Bouton pour le mode clair/sombre */
+.mode-btn {
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #1f1f1f; /* Fond noir */
+}
+}
+
+.text p {
+  max-width: 50%;
+  margin: 20px 0;
+}
+.btn {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  margin-top: 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  transition: 0.5s;
+}
+.btn:hover {
+  letter-spacing: 5px;
+}
+.circle {
+  position: absolute;
+  background: var(--primary-color);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: circle(600px at right 700px);
+}
+.IMG {
+  position: absolute;
+  top: 400px;
+  right: 25px;
+}
+.IMG img {
+  width: 100%;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.IMG img:hover {
+  transform: scale(0.5);
 }
