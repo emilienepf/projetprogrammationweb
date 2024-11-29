@@ -24,7 +24,7 @@
 header {
     background-color: #1f1f1f; /* Couleur légèrement plus claire pour contraste */
     color: #e0e0e0;
-    padding: 2rem 2rem; /* Augmenter le padding vertical (haut et bas) */
+    padding: 3rem 3rem; /* Augmenter le padding vertical (haut et bas) */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,7 +38,6 @@ header .profile-photo {
     height: 80px;
     border-radius: 50%; /* Forme circulaire */
     overflow: hidden;
-    border: 2px solid #64b5f6; /* Bordure bleue claire */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,17 +85,68 @@ main {
     margin-left: 10px; /* Légère marge à gauche */
 }
 
-
-#edito h2 {
-    margin-bottom: 1rem;
-    font-size: 3rem;
-    font-weight: bold;
+/* Carrousel */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Largeur totale du carrousel */
+    height: 300px; /* Ajustez cette hauteur selon vos besoins */
+    margin: 0 auto;
 }
 
-#edito p {
-    font-style: italic;
-    font-size: 1.8rem;
-    font-weight: bold;
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel-image {
+    flex: 0 0 auto; /* Permet de définir des tailles individuelles */
+    object-fit: contain; /* Ajuste l'image sans déformation */
+    object-position: center;
+}
+
+/* Boutons de navigation */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Taille spécifique pour chaque image */
+.image-1 {
+    width: 100%; /* Ajustez la largeur de l'image 1 */
+    height: 300px; /* Ajustez la hauteur de l'image 1 */
+}
+
+.image-2 {
+    width: 100%; /* Ajustez la largeur de l'image 2 */
+    height: 300px; /* Ajustez la hauteur de l'image 2 */
+}
+
+.image-3 {
+    width: 100%; /* Ajustez la largeur de l'image 3 */
+    height: 300px; /* Ajustez la hauteur de l'image 3 */
 }
 
 /* Grid des projets */
@@ -191,7 +241,7 @@ body.light-mode .project {
 }
 
 body.light-mode .project-front {
-    background-color: #efefef; /* Fond clair pour la face avant */
+    background-color: #f0f0f0; /* Fond clair pour la face avant */
     color: #222; /* Texte noir */
 }
 
@@ -204,7 +254,7 @@ body.light-mode .project-front p {
 }
 
 body.light-mode .project-back {
-    background-color: #efefef; /* Fond blanc pour la face arrière */
+    background-color: #f0f0f0; /* Couleur de fond gris clair */
 }
 /* Formulaire de contact */
 #contact {
@@ -416,118 +466,31 @@ body.light-mode .back-to-top:hover {
     background-color: #f0f0f0;
     color: #000;
 }
-/* Section Édito */
-#edito {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden; /* Empêche le débordement des éléments */
-    height: 300px; /* Définir une hauteur fixe si nécessaire */
+
+
+@media (max-width: 769px) { /* TELEPHONES */
+
+    /* Nom de l'auteur */
+/* Nom de l'auteur */
+.author-name {
+    position: absolute; /* Positionner précisément dans le header */
+    top: 50%; /* Aligner verticalement */
+    left: 10px; /* Décaler à gauche */
+    transform: translateY(-50%); /* Centrer parfaitement verticalement */
+    font-size: 1.5rem; /* Ajustez la taille selon vos besoins */
+    font-weight: bold; /* Rendre le texte plus visible */
+    color: #fff; /* Couleur blanche pour contraste (changez selon le thème) */
 }
 
-/* Couleur de fond de la section */
-.edito-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #121212; /* Fond sombre par défaut */
-    z-index: 0; /* Couche inférieure */
-    transition: background-color 0.3s ease; /* Transition fluide */
+.author-name {
+    position: absolute; /* Positionner précisément dans le header */
+    top: 50%; /* Aligner verticalement */
+    left: 10px; /* Décaler à gauche */
+    transform: translateY(-50%); /* Centrer parfaitement verticalement */
+    font-size: 1rem; /* Ajustez la taille selon vos besoins */
+    font-weight: bold; /* Rendre le texte plus visible */
+    color: #fff; /* Couleur blanche pour contraste (changez selon le thème) */
 }
-
-/* Texte */
-.edito-content {
-    position: relative; /* Assure que le texte est au-dessus de l'image et du fond */
-    z-index: 2;
-    text-align: center;
-    margin-right: 6%;
-    color: #fff; /* Texte blanc par défaut */
-    padding: 2rem; /* Espacement autour du texte */
-    line-height: 1.8; /* Améliore la lisibilité avec un espacement vertical */
-}
-
-.edito-bg {
-    position: absolute;
-    top: 60%; /* Centre verticalement */
-    right: 30%; /* Positionne à gauche */
-    transform: translateY(-50%); /* Ajuste pour centrer parfaitement l'image verticalement */
-    width: 90%; /* Largeur de l'image */
-    height: 90%; /* Laisse la hauteur s'adapter automatiquement en fonction des proportions */
-    background-image: url('https://pngimg.com/d/mercedes_PNG80168.png');
-    background-size: contain; /* Assure que l'image est entièrement visible */
-    background-position: center; /* Centre l'image horizontalement */
-    background-repeat: no-repeat; /* Évite la répétition de l'image */
-    opacity: 0.4; /* Opacité complète par défaut */
-    z-index: 1; /* Couche supérieure par rapport au fond */
-    transition: opacity 0.3s ease; /* Transition fluide */
-}
-
-
-.edito-bg2 {
-    position: absolute;
-    top: 58%; /* Centre verticalement */
-    left: 25%; /* Positionne à gauche */
-    transform: translateY(-50%); /* Ajuste pour centrer parfaitement l'image verticalement */
-    width: 95%; /* Largeur de l'image */
-    height: 95%; /* Laisse la hauteur s'adapter automatiquement en fonction des proportions */
-    background-image: url('https://pngimg.com/d/porsche_PNG102866.png');
-    background-size: contain; /* Assure que l'image est entièrement visible */
-    background-position: center; /* Centre l'image horizontalement */
-    background-repeat: no-repeat; /* Évite la répétition de l'image */
-    opacity: 0.4; /* Opacité complète par défaut */
-    z-index: 1; /* Couche supérieure par rapport au fond */
-    transition: opacity 0.3s ease; /* Transition fluide */
-}
-
-/* Masquer les images sur téléphone */
-@media (max-width: 768px) {
-    .edito-bg2 {
-        display: none; /* Masque l'image de fond */
-    }
-    .edito-content {
-        font-size: 20%; /* Taille de police plus petite pour les téléphones */
-        line-height: 0.8; /* Espacement des lignes réduit */
-    }
-    .edito-bg {
-        display: none; /* Masque l'image de fond */
-    }
-}
-
-/* Masquer les images sur téléphone */
-@media (max-width: 1024px) {
-    .edito-content {
-        font-size: 20%; /* Taille de police plus petite pour les téléphones */
-        line-height: 0.8; /* Espacement des lignes réduit */
-    }
-    .edito-bg2 {
-        display: none; /* Masque l'image de fond */
-    }
-    .edito-bg {
-        display: none; /* Masque l'image de fond */
-    }
-    
-}
-
-/* Mode clair - Fond gris clair */
-body.light-mode .edito-background {
-    background-color: #f0f0f0; /* Couleur de fond gris clair */
-}
-
-body.light-mode .edito-bg {
-    opacity: 0.8; /* Transparence de l'image */
-}
-
-body.light-mode .edito-content {
-    color: #222; /* Texte noir */
-}
-
-/* Pleine opacité de l'image au survol */
-body.light-mode .edito-bg:hover {
-    opacity: 1;
-}
-
-@media (max-width: 769px) {
 /* Menu principal */
 .header-nav {
     position: absolute;
@@ -599,7 +562,6 @@ header .profile-photo {
     height: 75px; /* Augmentez la hauteur */
     border-radius: 50%; /* Conserve la forme circulaire */
     overflow: hidden;
-    border: 2px solid #64b5f6; /* Bordure bleue claire */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -630,7 +592,6 @@ header .profile-photo img {
     color: #fff; /* Texte blanc */
     transition: background-color 0.3s ease;
 }
-
     
 }
 
@@ -644,6 +605,7 @@ header .profile-photo img {
         height: 100%;
         object-fit: cover;
     }
+    
     
     /* Alignement des liens de navigation à droite */
     header nav {
@@ -708,45 +670,5 @@ header .profile-photo img {
     font-size: 1rem;
     background-color: #1f1f1f; /* Fond noir */
 }
-}
 
-.text p {
-  max-width: 50%;
-  margin: 20px 0;
-}
-.btn {
-  background: var(--primary-color);
-  color: #fff;
-  padding: 15px 30px;
-  display: flex;
-  margin-top: 30px;
-  border: none;
-  border-radius: 30px;
-  font-size: 18px;
-  transition: 0.5s;
-}
-.btn:hover {
-  letter-spacing: 5px;
-}
-.circle {
-  position: absolute;
-  background: var(--primary-color);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  clip-path: circle(600px at right 700px);
-}
-.IMG {
-  position: absolute;
-  top: 400px;
-  right: 25px;
-}
-.IMG img {
-  width: 100%;
-  cursor: pointer;
-  transition: 0.5s;
-}
-.IMG img:hover {
-  transform: scale(0.5);
 }
