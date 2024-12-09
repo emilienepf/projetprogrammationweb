@@ -1,0 +1,220 @@
+/* --- Styles globaux --- */
+header {
+    background-color: #1f1f1f; /* Fond sombre */
+    color: #e0e0e0; /* Texte clair */
+    padding: 3rem 3rem; /* Augmenter le padding vertical */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    position: relative;
+}
+
+.author-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 0.5rem;
+    margin-left: 1rem; /* Décalé à gauche */
+}
+
+/* --- Photo de profil centrée dans le header --- */
+.profile-photo {
+    width: 80px; /* Taille ajustable */
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Navigation en haut à droite pour PC --- */
+header nav {
+    position: absolute;
+    right: 5rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+header nav ul li {
+    margin-left: 1rem;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #64b5f6; /* Texte bleu clair */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #90caf9; /* Texte bleu plus clair au survol */
+}
+
+/* --- Bouton mode clair/sombre --- */
+.mode-btn {
+    position: absolute;
+    top: 1rem; /* Aligné en haut à droite */
+    right: 1rem; /* Position à droite */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem; /* Taille standard */
+    cursor: pointer;
+    z-index: 1000;
+    transition: color 0.3s ease;
+}
+
+.mode-btn:hover {
+    color: #90caf9; /* Texte bleu clair au survol */
+}
+
+/* --- Bouton menu burger (visible uniquement pour téléphone) --- */
+.menu-toggle {
+    display: none; /* Masqué par défaut */
+}
+
+/* --- Mode PC --- */
+@media (min-width: 770px) {
+    .menu-toggle {
+        display: none; /* Pas de menu burger sur PC */
+    }
+
+    .header-nav {
+        display: block; /* Navigation fixe visible */
+    }
+}
+
+@media (max-width: 769px) {
+    header {
+        flex-direction: column; /* Réorganise les éléments en colonne */
+        padding: 1.5rem 1rem; /* Ajuste le padding */
+        position: relative;
+    }
+
+    /* --- Bouton menu déroulant (texte) --- */
+    .menu-toggle {
+        display: inline-block; /* Visible sur téléphone */
+        position: absolute;
+        top: 3rem; /* Aligné en haut */
+        right: 1.5rem; /* Juste à gauche du bouton clair/sombre */
+        background: none; /* Pas de fond */
+        border: none;
+        color: #fff; /* Texte blanc */
+        font-size: 1rem; /* Texte compact */
+        cursor: pointer;
+        z-index: 1000; /* Priorité élevée */
+        transition: color 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+        color: #90caf9; /* Texte bleu clair au survol */
+    }
+
+    /* --- Bouton mode clair/sombre --- */
+    .mode-btn {
+        display: inline-block; /* Visible sur téléphone */
+        position: absolute;
+        top: 1rem;
+        right: 1rem; /* Aligné tout à droite */
+        background: none;
+        border: none;
+        color: #fff; /* Texte blanc */
+        font-size: 1rem; /* Texte compact */
+        cursor: pointer;
+        z-index: 1000;
+        transition: color 0.3s ease;
+    }
+
+    .mode-btn:hover {
+        color: #90caf9; /* Texte bleu clair au survol */
+    }
+
+    /* --- Menu déroulant --- */
+    .header-nav {
+        position: absolute;
+        top: 6rem; /* Position sous les boutons */
+        right: 0.1rem; /* Aligné à droite */
+        width: auto; /* Ajustement automatique de la largeur */
+        background-color: #1f1f1f; /* Fond sombre */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce */
+        border-radius: 5px; /* Coins arrondis */
+        overflow: hidden; /* Cache les éléments */
+        max-height: 0; /* Masqué par défaut */
+        transition: max-height 0.3s ease; /* Animation d'ouverture */
+        z-index: 900;
+    }
+
+    .header-nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-nav ul li {
+        border-bottom: 1px solid #333; /* Ligne de séparation entre les éléments */
+    }
+
+    .header-nav ul li:last-child {
+        border-bottom: none; /* Pas de ligne après le dernier lien */
+    }
+
+    .header-nav ul li a {
+        display: block;
+        padding: 0.7rem 1rem; /* Ajuste le padding pour lisibilité */
+        color: #fff; /* Texte blanc */
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .header-nav ul li a:hover {
+        background-color: #333; /* Fond sombre au survol */
+    }
+
+     /* --- Photo de profil --- */
+     .profile-photo {
+        width: 80px; /* Taille ajustée pour téléphone */
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto; /* Centre la photo en haut */
+        margin-top: -1.5rem;
+    }
+
+    .profile-photo img {
+        width: 80%;
+        height: 80%;
+        object-fit: cover;
+        border-radius: 50%; /* Forme circulaire */
+    }
+
+    .author-name {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #fff;
+        margin-top: 0.5rem; /* Espacement avec la photo */
+        margin-left: 0; /* Réinitialise les marges latérales */
+        text-align: left; /* Alignement textuel à gauche */
+        display: block; /* Force l'affichage en bloc */
+        width: 100%; /* S'assure que l'élément occupe toute la largeur */
+    }
+}
