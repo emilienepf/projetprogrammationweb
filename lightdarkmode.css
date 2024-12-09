@@ -1,0 +1,141 @@
+/* Bouton pour le mode clair/sombre */
+.mode-btn {
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #1f1f1f; /* Fond noir */
+}
+
+
+/* Mode clair pour les projets */
+body.light-mode .project {
+    background-color: #f0f0f0; /* Fond des projets en blanc */
+    color: #222; /* Texte en noir */
+}
+
+body.light-mode .project-front {
+    background-color: #f0f0f0; /* Fond clair pour la face avant */
+    color: #222; /* Texte noir */
+}
+
+body.light-mode .project-front h3 {
+    color: #000; /* Titre noir */
+}
+
+body.light-mode .project-front p {
+    color: #333; /* Texte légèrement plus clair */
+}
+
+body.light-mode .project-back {
+    background-color: #f0f0f0; /* Couleur de fond gris clair */
+}
+
+/* Mode clair */
+body.light-mode .mode-btn {
+    background-color: #fff; /* Fond blanc */
+    color: #000; /* Texte noir */
+}
+
+.mode-btn:hover {
+    scale:1.2;
+}
+
+/* Light mode styles */
+body.light-mode {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+header.light-mode {
+    background-color: #ffffff;
+    color: #333;
+}
+
+header.light-mode nav ul li a {
+    color: #333;
+}
+
+header.light-mode nav ul li a:hover {
+    color: #555;
+}
+
+form.light-mode input, form.light-mode textarea {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+form.light-mode button {
+    background-color: #64b5f6;
+    color: #ffffff;
+}
+
+footer.light-mode {
+    background-color: #ffffff;
+    color: #333;
+}
+
+footer.light-mode .footer-links li a {
+    color: #64b5f6;
+}
+
+/* Formulaire en mode clair */
+form.light-mode label {
+    color: #222; /* Texte en noir */
+}
+
+.project.light-mode h3 {
+    color: #000; /* Titre en noir */
+}
+
+.project.light-mode p {
+    color: #333; /* Texte des descriptions légèrement plus clair */
+}
+
+/* Bouton de retour en haut - Mode clair */
+body.light-mode .back-to-top {
+    background-color: #ffffff; /* Fond blanc */
+    color: #222; /* Police noire */
+    border: 1px solid #ddd; /* Bordure légère */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+body.light-mode .back-to-top:hover {
+    background-color: #f0f0f0; /* Fond légèrement plus clair au survol */
+    color: #000; /* Police noire au survol */
+}
+
+/* Bouton "Envoyer" du formulaire - Mode clair */
+body.light-mode form button {
+    background-color: #ffffff; /* Fond blanc */
+    color: #222; /* Police noire */
+    border: 1px solid #ccc; /* Bordure légère */
+}
+
+body.light-mode form button:hover {
+    background-color: #f0f0f0; /* Fond légèrement plus clair au survol */
+    color: #000; /* Police noire au survol */
+}
+
+/* Mode clair */
+.light-mode .author-name {
+    color: #000; /* Texte noir pour le mode clair */
+}
+
+.light-mode .menu-toggle {
+    color: #000; /* Texte noir pour le bouton du menu déroulant */
+}
+
+/* Mode clair */
+.light-mode .header-nav ul li a {
+    color: #ffffff; /* Texte noir pour le mode clair */
+}
+
+.light-mode .header-nav ul li a:hover {
+    background-color: #f0f0f0; /* Fond clair au survol */
+}
