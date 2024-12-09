@@ -140,3 +140,8 @@ body.light-mode form button:hover {
 .light-mode .header-nav ul li a {
     color: #000; /* Texte noir */
 }
+
+/* Mode clair */
+.light-mode .header-nav {
+    background-color: #ffffff; /* Fond blanc en mode clair */
+}
