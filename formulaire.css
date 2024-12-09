@@ -1,0 +1,39 @@
+/* Formulaire de contact */
+#contact {
+    padding: 2rem 1rem;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin: 0.5rem 0 0.2rem;
+    font-weight: bold;
+    color: #e0e0e0;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #1f1f1f; /* Fond sombre */
+    color: #e0e0e0; /* Texte clair */
+}
+
+form button {
+    background-color: #64b5f6; /* Bouton bleu clair */
+    color: #121212; /* Texte sombre pour contraste */
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #90caf9; /* Accent bleu plus clair */
+}
