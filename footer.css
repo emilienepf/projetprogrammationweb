@@ -4,7 +4,7 @@ footer {
     color: #e0e0e0;
     padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -15,7 +15,7 @@ footer .author {
 footer .footer-links {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1rem; /* Espace entre les liens */
     margin: 0;
 }
 
