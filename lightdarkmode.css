@@ -41,10 +41,6 @@ body.light-mode .mode-btn {
     color: #000; /* Texte noir */
 }
 
-.mode-btn:hover {
-    scale:1.2;
-}
-
 /* Light mode styles */
 body.light-mode {
     background-color: #f0f0f0;
