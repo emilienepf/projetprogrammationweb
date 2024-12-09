@@ -1,0 +1,210 @@
+/* Grid des projets */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+    gap: 1.5rem 2rem; /* Moins d'espace horizontal (1.5rem) et plus d'espace vertical (2rem) */
+    padding: 2rem; /* Marges autour de la grille */
+}
+
+/* Conteneur général du projet */
+.project {
+    perspective: 1000px; /* Nécessaire pour l'effet 3D */
+    position: relative;
+    width: 100%; /* Occupe l'espace alloué dans la grille */
+    aspect-ratio: 1 / 1; /* Format carré */
+    max-width: 400px; /* Taille légèrement augmentée */
+    margin: 0 auto; /* Centre les projets dans leur colonne */
+}
+
+/* Conteneur interne */
+.project-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; /* Active l'effet 3D */
+    transition: transform 0.8s ease; /* Transition fluide */
+}
+
+/* Face avant */
+.project-front,
+.project-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    backface-visibility: hidden; /* Cache la face arrière par défaut */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+/* Face avant */
+.project-front {
+    background-color: #1f1f1f; /* Fond sombre */
+    color: #e0e0e0; /* Texte clair */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition pour le mode clair */
+    box-shadow: 6px 6px 60px rgba(0.3, 0.3, 0.3, 0.3); /* Ombre légère */
+}
+
+.project-front h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem; /* Taille légèrement augmentée */
+    color: #90caf9; /* Accent bleu clair */
+}
+
+.project-front p {
+    font-size: 0.9rem; /* Taille légèrement augmentée */
+    color: #b0bec5; /* Texte légèrement plus clair */
+}
+
+/* Face arrière */
+.project-back {
+    background-color: #121212; /* Fond blanc */
+    transform: rotateY(180deg); /* Face arrière masquée par défaut */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px; /* Coins arrondis */
+}
+
+.project-back img {
+    max-width: 150%; /* Ajuste la taille de l'image */
+    max-height: 150%;
+    border-radius: 5px; /* Coins arrondis */
+}
+
+/* Effet de rotation au survol */
+.project:hover .project-inner {
+    transform: rotateY(180deg); /* Rotation complète */
+}
+
+#projets h2 {
+    font-size: 2rem; /* Taille de police */
+    font-weight: bold;
+    color: #64b5f6; /* Texte bleu clair pour attirer l'attention */
+    text-align: center; /* Centré horizontalement */
+    margin-bottom: 1.5rem; /* Espacement avec les contenus suivants */
+    text-transform: uppercase; /* Met le texte en majuscules */
+    letter-spacing: 1px; /* Espacement des lettres */
+}
+
+@media (max-width: 769px) {
+
+    #projets h2 {
+        font-size: 2rem; /* Taille de police */
+        font-weight: bold;
+        color: #64b5f6; /* Texte bleu clair pour attirer l'attention */
+        text-align: center; /* Centré horizontalement */
+        margin-bottom: 1.5rem; /* Espacement avec les contenus suivants */
+        text-transform: uppercase; /* Met le texte en majuscules */
+        letter-spacing: 1px; /* Espacement des lettres */
+    }
+    /* --- Grid des projets : Afficher un projet par ligne --- */
+    .project-grid {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        gap: 1rem; /* Espace réduit entre les projets */
+        padding: 1rem; /* Marges ajustées autour de la grille */
+    }
+
+    /* --- Projet : Rester carré et occuper toute la largeur disponible --- */
+    .project {
+        width: 100%; /* Prend toute la largeur de l'écran */
+        aspect-ratio: 1 / 1; /* Conserve le format carré */
+        margin: 0 auto; /* Centre les projets dans la colonne */
+    }
+
+    .project-inner {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.8s ease; /* Transition fluide */
+    }
+
+    /* --- Face avant du projet --- */
+    .project-front,
+    .project-back {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        backface-visibility: hidden;
+        border-radius: 5px; /* Coins arrondis */
+    }
+
+    .project-front {
+        padding: 0rem; /* Réduction du padding */
+        font-size: 0.9rem; /* Taille de texte ajustée */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #1f1f1f; /* Fond sombre */
+        color: #e0e0e0; /* Texte clair */
+        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.4); /* Ombre légère */
+    }
+
+    .project-front h3 {
+        font-size: 1rem; /* Taille légèrement réduite pour le titre */
+        margin-bottom: 0.5rem;
+        color: #90caf9; /* Couleur d'accentuation */
+    }
+
+    .project-front p {
+        font-size: 0.8rem; /* Texte descriptif réduit */
+        color: #b0bec5;
+    }
+
+    /* --- Face arrière du projet --- */
+    .project-back {
+        background-color: #121212;
+        transform: rotateY(180deg); /* Masquer la face arrière par défaut */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px; /* Coins arrondis */
+    }
+
+    .project-back img {
+        max-width: 90%; /* Ajuster la taille de l'image pour s'adapter au conteneur */
+        max-height: 90%;
+        border-radius: 5px; /* Coins arrondis */
+    }
+
+    /* --- Effet de rotation au survol --- */
+    .project:hover .project-inner {
+        transform: rotateY(180deg); /* Rotation complète */
+    }
+}
+
+@media (max-width: 480px) {
+    /* --- Grid des projets : Conserver une seule colonne --- */
+    .project-grid {
+        padding: 0.5rem; /* Réduction des marges pour petits écrans */
+    }
+
+    /* --- Projet : Toujours carré et centré --- */
+    .project {
+        margin: 0 auto; /* Centre les projets */
+        aspect-ratio: 1 / 1; /* Conserve le format carré */
+    }
+
+    .project-front,
+    .project-back {
+        width: 90%; /* Garder un petit espace autour */
+        height: 90%;
+    }
+
+    .project-front h3 {
+        font-size: 0.9rem; /* Réduction du titre pour petits écrans */
+    }
+
+    .project-front p {
+        font-size: 0.7rem; /* Réduction du texte descriptif */
+    }
+}
