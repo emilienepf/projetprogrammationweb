@@ -1,0 +1,21 @@
+/* Bouton de retour en haut */
+.back-to-top {
+    position: fixed;
+    background-color: #64b5f6;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    font-size: 0.9rem; /* Réduit la taille de la police */
+    padding: 8px 12px; /* Réduit le padding (taille globale du bouton) */
+    border-radius: 8px; /* Bordure légèrement arrondie */
+    bottom: 15px; /* Ajuste la position par rapport au bas */
+    right: 15px; /* Ajuste la position par rapport à la droite */
+}
+
+.back-to-top:hover {
+    background-color: #90caf9;
+    transform: scale(1.28);
+}
